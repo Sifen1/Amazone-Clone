@@ -1,8 +1,8 @@
 export const categoryInfos = [
     {
-        name: "Electronics",
-        title: "Backpack",
-        imageLink: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        name: "electronics",
+        title: "electronics",
+        imageLink: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
     },
     {
         title: "Mens  T-Shirts ",
@@ -11,14 +11,14 @@ export const categoryInfos = [
       },
       {
         
-        title: "Mens Cotton Jacket",
-        category: "men's clothing",
-        imageLink: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+        title: "womens",
+        name: "women's clothing",
+        imageLink: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
        
       },
       {
-        title: "Mens Casual Slim Fit",
-        category: "men's clothing",
-        imageLink: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+        title: "jewelery",
+        name: "jewelery",
+        imageLink: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
       }
 ]
