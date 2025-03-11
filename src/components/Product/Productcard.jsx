@@ -206,7 +206,7 @@ function Productcard({ product, flex, renderDesc,renderAdd }) {
   }
 
   return (
-    <div className={clsx(classes.card_container, { [classes.product_flexed]: flex })}>
+    <div className={`${classes.card_container} ${ flex?classes.product_flexed: '' }`}>
       <Link to={`/Products/${id}`}>
         <img src={image} alt={title || 'Products image'} />
       </Link>
