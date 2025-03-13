@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 function CategoryCard({ data }) {
   return (
     <div className={classes.category}>
-      <Link to={`/results/${data.name}`}>
+      <Link to={`/Category/${data.name}`}>
         <span>
           <h2>{data?.title}</h2>
         </span>

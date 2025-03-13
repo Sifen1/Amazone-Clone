@@ -15,7 +15,7 @@
 
 // export default Category
 import React from "react";
-import { CategoryInfos } from "./CategoryFullinfos";
+import { CategoryInfos} from "./CategoryFullInfos";
 import CategoryCard from "./CategoryCard";
 import classes from "./Category.module.css";
 
