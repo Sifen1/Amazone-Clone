@@ -1,30 +1,60 @@
-import React, { useContext, useEffect } from 'react'
-import Routing from './Router'
-import { DataContext } from './components/DataProvider/DataProvider'
-import { Type } from './Utility/action.type'
-import { auth } from './Utility/firebase'
+// import React, { useContext, useEffect } from 'react'
+// import Routing from './Router'
+// import { DataContext } from './components/DataProvider/DataProvider'
+// import { Type } from './Utility/action.type'
+// import { auth } from './Utility/firebase'
+
+// function App() {
+//   const [{user},dispatch]= useContext(DataContext)
+
+//   useEffect(()=>{
+//     auth.onAuthStateChanged((authuser)=>{
+//       if (authuser) {
+//         //console.log(authuser);
+//         dispatch({
+//           type:Type.SET_USER,
+//           user:authuser,
+//         });
+//       }else{
+//         dispatch({
+//           type:Type.SET_USER,
+//           user:null,
+//         });
+//       }
+
+//     })
+
+//   },[])
+//   return <Routing />
+// }
+// export default App
+import React, { useContext, useEffect } from "react";
+import Routing from "./Router.jsx";
+import { DataContext } from "./components/DataProvider/DataProvider.jsx";
+import { Type } from "./Utility/action.type.js";
+import { auth } from "./Utility/firebase.js";
 
 function App() {
-  const [{user},dispatch]= useContext(DataContext)
+  const [user, dispatch] = useContext(DataContext);
 
-  useEffect(()=>{
-    auth.onAuthStateChanged((authuser)=>{
-      if (authuser) {
-        //console.log(authuser);
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        // console.log(authUser);
         dispatch({
-          type:Type.SET_USER,
-          user:authuser,
+          type: Type.SET_USER,
+          user: authUser,
         });
-      }else{
+      } else {
         dispatch({
-          type:Type.SET_USER,
-          user:null,
+          type: Type.SET_USER,
+          user: null,
         });
       }
+    });
+  }, []);
 
-    })
-
-  },[])
-  return <Routing />
+  return <Routing />;
 }
-export default App
+
+export default App;
