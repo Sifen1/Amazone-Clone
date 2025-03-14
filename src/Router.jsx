@@ -15,7 +15,7 @@ const stripePromise = loadStripe("pk_test_51Qc0MbKyBRzdWUn3tn6UWcbB1WpccTHPOaPyb
 
 function RouterComponent() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Amazone-Clone">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
