@@ -156,5 +156,53 @@
 // // app.listen(PORT, () => {
 // //   console.log(`Server is running on port ${PORT}`);
 // // });
+const express = require("express");
+const cors = require("cors");
+const stripe = require("stripe")(process.env.STRIPE_KEY); // Add Stripe key here
+
+const app = express();
+app.use(cors({ origin: true }));
+app.use(express.json());
+
+// Simple health check route (just to verify the server)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Server is up and running!",
+  });
+});
+
+// Payment route to create payment intent
+app.post("/api/payment/create", async (req, res) => {
+  const { total } = req.body;  // Get total amount (in cents, e.g., $10 = 1000)
+
+  if (total > 0) {
+    try {
+      // Create payment intent with Stripe
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: total,  // Total in cents
+        currency: "usd",
+      });
+
+      res.status(201).json({
+        clientSecret: paymentIntent.client_secret,
+      });
+    } catch (error) {
+      console.error("Error creating payment intent:", error);
+      res.status(500).json({
+        message: "Failed to create payment intent",
+      });
+    }
+  } else {
+    res.status(403).json({
+      message: "Total must be greater than 0",
+    });
+  }
+});
+
+// Start the Express server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 
