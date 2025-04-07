@@ -733,7 +733,7 @@ function Payment() {
       //   { total: Math.round(total * 100) } // Ensure it's an integer (cents)
       // );
       const response = await axiosInstance.post(
-        'https://amazon-deploy-pcf5.onrender.com/payment/create', // <-- Updated URL
+        'https://amazon-deploy-pcf5.onrender.com/api/payment/create', // <-- Updated URL
         { total: Math.round(total * 100) } // Ensure it's in cents
       );
       
