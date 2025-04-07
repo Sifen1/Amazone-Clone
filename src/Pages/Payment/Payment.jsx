@@ -728,10 +728,15 @@ function Payment() {
       setProcessing(true);
 
       // Backend request to get client secret
+      // const response = await axiosInstance.post(
+      //   '/payment/create', // Corrected to use quotes around the URL
+      //   { total: Math.round(total * 100) } // Ensure it's an integer (cents)
+      // );
       const response = await axiosInstance.post(
-        '/payment/create', // Corrected to use quotes around the URL
-        { total: Math.round(total * 100) } // Ensure it's an integer (cents)
+        'https://amazon-deploy-pcf5.onrender.com/payment/create', // <-- Updated URL
+        { total: Math.round(total * 100) } // Ensure it's in cents
       );
+      
       const clientSecret = response.data?.clientSecret;
 
       if (!clientSecret)
